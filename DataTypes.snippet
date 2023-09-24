@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>UENUM</Title>
+            <Author>ffabian</Author>
+            <Description>Adds basic UENUM</Description>
+            <Shortcut>UENUM</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                UENUM(BlueprintType)
+                enum class ENewEnum : uint8 {
+                    FirstValue       UMETA(DisplayName = "FirstValue"),
+                    SecondValue        UMETA(DisplayName = "SecondValue"),
+                    ThirdValue        UMETA(DisplayName = "ThirdValue"),
+                };
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>USTRUCT</Title>
+            <Author>ffabian</Author>
+            <Description>Adds basic USTRUCT</Description>
+            <Shortcut>USTRUCT</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                USTRUCT(BlueprintType)
+                struct FCustomStruct
+                {
+                    GENERATED_BODY()
+
+                public:
+
+                    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+                        bool booleanVariable;
+
+                    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+                        float floatVariable;
+
+                    FCustomStruct() {}
+
+                    FCustomStruct(bool value)
+                    {
+                        booleanVariable = value;
+                    }
+                    
+                };
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>SetTimer</Title>
+            <Author>ffabian</Author>
+            <Description>Adds basic timer</Description>
+            <Shortcut>SetTimer</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                    FTimerHandle TimerHandle;
+
+                    GetWorld()->GetTimerManager().SetTimer(TimerHandle, [this]() {
+                        // do something when timer ends
+                    }, 0.5f, false);
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>GetActorOfClass</Title>
+            <Author>ffabian</Author>
+            <Description>Get Actor of Class</Description>
+            <Shortcut>GetActorOfClass</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                    ACustomActor* FoundActor = Cast<ACustomActor>(UGameplayStatics::GetActorOfClass(GetWorld(), ACustomActor::StaticClass()));
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>BlueprintImplementable</Title>
+            <Author>ffabian</Author>
+            <Description>Blueprint Implementable Event</Description>
+            <Shortcut>BlueprintImplementable</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                    UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+                    void FunctionOverridenInBlueprint();
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+    
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>AddDynamic</Title>
+            <Author>ffabian</Author>
+            <Description>Bind Dynamic Multicast Event</Description>
+            <Shortcut>AddDynamic</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                    Actor->OnSomeEvent.AddDynamic(this, &ActorClass::OnSomeEventTriggered);
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>DeclareDelegate</Title>
+            <Author>ffabian</Author>
+            <Description>DeclareDelegate Multicast</Description>
+            <Shortcut>DeclareDelegate</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FBasicEvent);
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>NewEvent</Title>
+            <Author>ffabian</Author>
+            <Description>New Basic Event</Description>
+            <Shortcut>NewEvent</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                    UPROPERTY(VisibleAnywhere, BlueprintAssignable)
+                    FBasicEvent OnInteracted;                    
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>CreateActorComponent</Title>
+            <Author>ffabian</Author>
+            <Description>Create default subobject for actor component</Description>
+            <Shortcut>CreateActorComponent</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                    CustomComponent = CreateDefaultSubobject<UCustomComponent>(TEXT("CustomComponent"));
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>CreateWidget</Title>
+            <Author>ffabian</Author>
+            <Description>Create widget andd add to viewport</Description>
+            <Shortcut>CreateWidget</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                    UUserWidget* newWidget = CreateWidget<UUserWidget>(World, CustomWidgetClass);
+                    newWidget->AddToViewport();
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>PlayFeedback</Title>
+            <Author>ffabian</Author>
+            <Description>Play feedback effect</Description>
+            <Shortcut>PlayFeedback</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[
+                    if (feedbackToPlay != nullptr)
+                    {
+                        FForceFeedbackParameters FeedbackParams;
+                        FeedbackParams.bLooping = false;
+                        FeedbackParams.Tag = "MyFeedbackEffect";
+
+                        ClientPlayForceFeedback(feedbackToPlay, FeedbackParams);
+                    }
+                    else
+                    {
+                        UE_LOG(LogTemp, Warning, TEXT("Invalid feedback effect"));
+                    }
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>CreateCameraFade</Title>
+            <Author>ffabian</Author>
+            <Description>Add methods for camera fade</Description>
+            <Shortcut>CreateCameraFade</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP">
+                <![CDATA[                
+                    void APowerOffPlayerController::StartFadeOut(FColor color, float duration)
+                    {
+                        PlayerCameraManager->StartCameraFade(0.0f, 1.0f, duration, color, false, true);
+                    }
+
+                    void APowerOffPlayerController::SetCameraColor(FColor color)
+                    {
+                        PlayerCameraManager->StartCameraFade(1, 1, 0.5f, color, false, true);
+                    }
+
+                    void APowerOffPlayerController::StartFadeIn(FColor color, float duration)
+                    {
+                        PlayerCameraManager->StartCameraFade(1.0f, 0.0f, duration, color, false, true);
+                    }
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+
+</CodeSnippets>
